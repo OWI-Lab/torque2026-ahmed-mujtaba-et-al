@@ -14,6 +14,22 @@ This package factors the core logic from the notebook into reusable modules:
 
 The included examples reproduce the figures and calculations from the original notebook using the package API.
 
+## Running in GitHub Codespaces
+
+You can run this project in a [GitHub Codespace](https://docs.github.com/en/codespaces) with the provided configuration. Just click the green "Code" button above and select "Open with Codespaces".
+
+From there, you can open a terminal in the Codespace and run the commands as described in the Usage section below, or open the `Reproduce-Torque2026.ipynb` notebook to see the calculations in action.
+
+## Installation (devcontainer)
+
+This project is configured to work with [devcontainer](https://code.visualstudio.com/docs/remote/devcontainer-overview). If you don't have `devcontainer` yet:
+
+1. Install [Docker](https://docs.docker.com/get-docker/).
+2. Install [Visual Studio Code](https://code.visualstudio.com/).
+3. Install the [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+
+Then, open the project folder in Visual Studio Code and select "Reopen in Container" when prompted. This will set up the development environment with all dependencies installed.
+
 ## Installation (uv)
 
 This project is configured for [uv](https://github.com/astral-sh/uv). If you don't have `uv` yet:
