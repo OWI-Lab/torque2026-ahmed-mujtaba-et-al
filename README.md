@@ -1,8 +1,16 @@
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/OWI-Lab/torque2026-ahmed-mujtaba-et-al)
+
 # owilab-torque2026
 
-Geometric, stress, and fatigue utilities to support the Torque 2026 analysis of as-built dimensional tolerances on monopile fatigue life.
+Analysis of as-built dimensional tolerances on monopile fatigue life.
 
 ## Overview
+
+> You can run this project in a **[GitHub Codespace](https://codespaces.new/OWI-Lab/torque2026-ahmed-mujtaba-et-al)** with the provided configuration. Just click the "Open in Codespaces" button at the top of this README.
+>
+> From there, you can open the `1.0.torque-2026.ipynb` notebook to see the calculations in action.
+
+### Package summary
 
 This package factors the core logic from the notebook into reusable modules:
 
@@ -14,13 +22,9 @@ This package factors the core logic from the notebook into reusable modules:
 
 The included examples reproduce the figures and calculations from the original notebook using the package API.
 
-## Running in GitHub Codespaces
+## Local Installation 
 
-You can run this project in a [GitHub Codespace](https://docs.github.com/en/codespaces) with the provided configuration. Just click the green "Code" button above and select "Open with Codespaces".
-
-From there, you can open a terminal in the Codespace and run the commands as described in the Usage section below, or open the `Reproduce-Torque2026.ipynb` notebook to see the calculations in action.
-
-## Installation (devcontainer)
+### Via devcontainer
 
 This project is configured to work with [devcontainer](https://code.visualstudio.com/docs/remote/devcontainer-overview). If you don't have `devcontainer` yet:
 
@@ -30,7 +34,7 @@ This project is configured to work with [devcontainer](https://code.visualstudio
 
 Then, open the project folder in Visual Studio Code and select "Reopen in Container" when prompted. This will set up the development environment with all dependencies installed.
 
-## Installation (uv)
+### Via uv
 
 This project is configured for [uv](https://github.com/astral-sh/uv). If you don't have `uv` yet:
 
