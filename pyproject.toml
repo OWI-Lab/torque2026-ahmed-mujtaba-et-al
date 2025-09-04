@@ -1,0 +1,62 @@
+[project]
+name = "owilab-torque2026"
+version = "0.1.0"
+description = "Geometric, stress, and fatigue utilities to support Torque 2026 analyses"
+readme = "README.md"
+authors = [
+  { name = "OWI-Lab", email = "info@owi-lab.be" }
+]
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["fatigue", "DNV", "S-N", "Weibull", "wind", "monopile"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering"
+]
+
+# Using uv (PEP 621 compliant). Dependencies are managed here.
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "matplotlib>=3.7",
+  "pandas>=1.5",
+  "seaborn>=0.12",
+  "tqdm>=4.64",
+  "py-fatigue>=2.0.3",
+]
+
+
+[project.optional-dependencies]
+plotly = [
+  "plotly>=5.15"
+]
+dev = [
+  "jupyterlab>=3.0",
+  "ipykernel>=6.0",
+  "pytest>=7.0",
+]
+
+[project.urls]
+Homepage = "https://example.com/owilab-torque2026"
+
+[project.scripts]
+# Optional CLI entrypoints (can also run scripts/main.py directly)
+owilab-torque2026 = "owilab_torque2026.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+# uv configuration section; uv reads pyproject and manages lock/venv
+# Example customizations can go here if needed later.
+
+[tool.pylint.messages_control]
+disable = ["invalid-name", "too-many-positional-arguments", "too-many-locals",
+           "too-many-arguments", "too-many-statements", "too-many-branches"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--doctest-modules -ra -q --disable-warnings"
