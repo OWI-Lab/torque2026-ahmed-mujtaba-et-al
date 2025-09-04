@@ -134,4 +134,4 @@ print("q_mean:", q_mean)
 
 ## Reproduction notebook
 
-A new notebook `Reproduce-Torque2026.ipynb` is included that imports the package and produces the same outputs as the original analysis.
+A new notebook `1.0.torque-2026.ipynb` is included that imports the package and produces the same outputs as the original analysis.
