@@ -735,6 +735,9 @@ def misalignment_surfaces_t1_t2_by_fatigue_life_at_d(
         - azim: view azimuth (default 75).
         - elev: view elevation (default 20).
         - units: units string for labels (default 'mm').
+        - axes_ratios: aspect ratios for (x, y, z) axes (default (1, 1, 0.5)).
+        - cmap_position: colorbar position [left, bottom, width, height]
+          (default [0.275, 0., 0.5, 0.03]).
 
     Returns
     -------
@@ -780,6 +783,8 @@ def misalignment_surfaces_t1_t2_by_fatigue_life_at_d(
     title = kwargs.pop("title", f"Fatigue Life surfaces vs t & T at D={d_fix}")
     fig = kwargs.pop("fig", None)
     figsize = kwargs.pop("figsize", (10, 7))
+    axes_ratios = kwargs.pop("axes_ratios", (1, 1, 0.5))
+    cmap_position = kwargs.pop("cmap_position", [0.275, 0., 0.5, 0.03])
 
     # Slice at fixed diameter
     df_slice_3d = df[np.isclose(df["D"], d_fix, atol=tol)]
@@ -840,10 +845,18 @@ def misalignment_surfaces_t1_t2_by_fatigue_life_at_d(
     # Colorbar keyed to misalignment
     mappable = plt.cm.ScalarMappable(norm=norm, cmap=cmap)
     mappable.set_array([])
-    fig.colorbar(mappable, ax=ax, label=f"Misalignment, {units}",
-                 orientation="horizontal", pad=0.05)
+    cax = fig.add_axes(cmap_position)  # type: ignore
+    fig.colorbar(mappable, cax=cax, label=f"Misalignment, {units}",
+                 orientation="horizontal")
     if title:
         ax.set_title(title)
+
+    ax.set_box_aspect(axes_ratios)  # Different aspect ratio for z
+    ax.set_position([0, 0, 1, 1])  # type: ignore
+    # Hide only the tick marks, keep labels
+    for axis in (ax.xaxis, ax.yaxis, ax.zaxis):
+        axis._axinfo["tick"]["inward_factor"] = 0  # type: ignore
+        axis._axinfo["tick"]["outward_factor"] = 0  # type: ignore
 
     return fig, ax
 
