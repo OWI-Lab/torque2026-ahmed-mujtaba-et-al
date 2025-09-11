@@ -785,6 +785,7 @@ def misalignment_surfaces_t1_t2_by_fatigue_life_at_d(
     figsize = kwargs.pop("figsize", (10, 7))
     axes_ratios = kwargs.pop("axes_ratios", (1, 1, 0.5))
     cmap_position = kwargs.pop("cmap_position", [0.275, 0., 0.5, 0.03])
+    aspect_zoom = kwargs.pop("aspect_zoom", 1.0)
 
     # Slice at fixed diameter
     df_slice_3d = df[np.isclose(df["D"], d_fix, atol=tol)]
@@ -853,6 +854,7 @@ def misalignment_surfaces_t1_t2_by_fatigue_life_at_d(
 
     ax.set_box_aspect(axes_ratios)  # Different aspect ratio for z
     ax.set_position([0, 0, 1, 1])  # type: ignore
+    ax.set_box_aspect(None, zoom=aspect_zoom)  # type: ignore
     # Hide only the tick marks, keep labels
     for axis in (ax.xaxis, ax.yaxis, ax.zaxis):
         axis._axinfo["tick"]["inward_factor"] = 0  # type: ignore
